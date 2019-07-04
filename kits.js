@@ -21,3 +21,13 @@ kits.formateDate = function(){
   s = s < 10 ? '0' + s : s;
   return y + '-' + M + '-' + d + ' ' + h + ':' + m + ':' + s;
 }
+
+kits.primaryKey = function(){
+  // 我们通过时间戳 + 大范围的随机数来生成id
+  let now = Date.now(); //得到是从1970年到现在为止的总的毫秒数
+  // 为了防止在1毫秒之内生成的id有多个，再次加上一个大范围的随机数
+  let r = kits.randomInt(100000,999999);
+  // console.log(r);
+  // 把两个得到的结果，拼接起来
+  return now + '' + r;
+}
