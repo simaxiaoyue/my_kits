@@ -31,3 +31,24 @@ kits.primaryKey = function(){
   // 把两个得到的结果，拼接起来
   return now + '' + r;
 }
+
+$(() => { // 封装一个根据键和值更新本地存储的方法
+  function saveData(key, arr) {
+    let jsonStr = JSON.stringify(arr);
+    localStorage.setItem(key, jsonStr);
+  }
+
+
+  // 封装一个根据键获取本地存储里数组的方法
+  function loadData(key) {
+    let jsonStr = localStorage.getItem(key);
+    let arr;
+    if (str === null) {
+      arr = [];
+    } else {
+      // 最中要的是一个数组
+      arr = JSON.parse(jsonStr);
+    }
+    return arr;
+  }
+});
