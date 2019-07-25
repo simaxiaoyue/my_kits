@@ -52,3 +52,15 @@ $(() => { // 封装一个根据键和值更新本地存储的方法
     return arr;
   }
 });
+//以键值对的形式获取url?后面的数据
+kits.getUrlParams = function () {
+  let arr = location.search.substring(1).split('&');
+  let prams = {};
+  arr.forEach(e=>{
+      let temp = e.split('=');
+      let key = temp[0];
+      let val = temp[1];
+      prams[key] = val;
+  })
+  return prams;
+}
